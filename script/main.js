@@ -14,20 +14,18 @@ function klok() {
 	if (hour >= 6 && hour <= 12) {
 		document.getElementById('main').classList.remove('nacht');
 		document.getElementById('main').classList.add('ochtend');
-
-	// if (hour > 12 && hour <= 18) {
-	// 	document.getElementById('main').classList.remove('ochtend');
-	// 	document.getElementById('main').classList.add('dag');
-	// if (hour > 18 && hour <= 24) {
-	// 	document.getElementById('main').classList.remove('dag');
-	// 	document.getElementById('main').classList.add('avond');
+	} else if (hour > 12 && hour <=18){
+		document.getElementById('main').classList.remove('ochtend');
+		document.getElementById('main').classList.add('dag');
+	} else if (hour > 18 && hour <=24){
+		document.getElementById('main').classList.remove('dag');
+		document.getElementById('main').classList.add('avond');
 	} else{
 		document.getElementById('main').classList.remove('avond');
 		document.getElementById('main').classList.add('nacht');
 
 	}
-	if (minutes == 00 )
-		color:pink;
+	
 
 	if (seconds < 10) {
 		seconds = '0' + seconds;
@@ -38,11 +36,15 @@ function klok() {
 	if (hour < 10) {
 		hour = '0' + hour;
 	}
-	document.getElementById('clock').innerHTML = today.getHours() + ':' + today.getMinutes() + ':' 
+	document.getElementById('clock').innerHTML = today.getHours() + ':' + minutes + ':' 
 	+ seconds;
 
 }
 
 klok();
 setInterval(klok, 1000);
+
+
+
+
 
